@@ -1,0 +1,402 @@
+﻿<UserControl x:Class="Sortieranlage_View_WPF.View.StartseiteView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Sortieranlage_View_WPF.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="850">
+    
+    <Border Background="LightBlue"
+            BorderBrush="Gray"
+            BorderThickness="3"
+            CornerRadius="13">
+
+        <Grid>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid VerticalAlignment="Top">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+                <Border x:Name="lmp_Foerderband"
+                        Grid.Row="0"
+                        Width="20"
+                        Height="20"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin=" 30,0,0,0"
+                        CornerRadius="10"
+                        BorderBrush="DarkGray"
+                        BorderThickness="3"
+                        Background="IndianRed"/>
+
+                <TextBlock Grid.Row="0"
+                           Text="Förderband"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="60,0,0,0"
+                           FontSize="20"
+                           FontFamily="arial black"/>
+
+                <Border x:Name="lmp_Kompressor"
+                        Grid.Row="1"
+                        Width="20"
+                        Height="20"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin=" 30,0,0,0"
+                        CornerRadius="10"
+                        BorderBrush="DarkGray"
+                        BorderThickness="3"
+                        Background="IndianRed"/>
+
+                <TextBlock Grid.Row="1"
+                           Text="Kompressor"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="60,0,0,0"
+                           FontSize="20"
+                           FontFamily="arial black"/>
+                
+                <TextBlock Grid.Row="2"
+                           Text="Farbsensor: "
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="30,0,0,0"
+                           FontSize="20"
+                           FontFamily="arial black"/>
+                
+                <TextBlock x:Name="txt_Farbsensor"
+                           Grid.Row="2"
+                           Text="Weiß"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="170,0,0,0"
+                           FontSize="20"
+                           FontFamily="arial black"/>
+
+
+
+
+
+                <Border x:Name="lmp_VentilRot"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Width="20"
+                        Height="20"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin=" 30,0,0,0"
+                        CornerRadius="10"
+                        BorderBrush="DarkGray"
+                        BorderThickness="3"
+                        Background="IndianRed"/>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="1"
+                           Text="Ventil Rot"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="60,0,0,0"
+                           FontSize="20"
+                           FontFamily="arial black"/>
+
+                <Border x:Name="lmp_VentilBlau"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Width="20"
+                        Height="20"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin=" 30,0,0,0"
+                        CornerRadius="10"
+                        BorderBrush="DarkGray"
+                        BorderThickness="3"
+                        Background="IndianRed"/>
+
+                <TextBlock Grid.Row="1"
+                           Grid.Column="1"
+                           Text="Ventil Blau"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="60,0,0,0"
+                           FontSize="20"
+                           FontFamily="arial black"/>
+
+                <Border x:Name="lmp_VentilWeiss"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Width="20"
+                        Height="20"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin=" 30,0,0,0"
+                        CornerRadius="10"
+                        BorderBrush="DarkGray"
+                        BorderThickness="3"
+                        Background="IndianRed"/>
+
+                <TextBlock Grid.Row="2"
+                           Grid.Column="1"
+                           Text="Ventil Weiß"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="60,0,0,0"
+                           FontSize="20"
+                           FontFamily="arial black"/>
+
+
+
+
+
+                <Border Grid.Row="0"
+                        Grid.Column="2"
+                        Width="20"
+                        Height="20"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin=" 30,0,0,0"
+                        CornerRadius="10"
+                        BorderBrush="DarkGray"
+                        BorderThickness="3"
+                        Background="red"/>
+
+                <TextBlock x:Name="txt_LagerplatzRot"
+                           Grid.Row="0"
+                           Grid.Column="2"
+                           Text="0"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="80,0,0,0"
+                           FontSize="20"
+                           FontFamily="arial black"
+                           />
+
+                <Border Grid.Row="1"
+                        Grid.Column="2"
+                        Width="20"
+                        Height="20"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin=" 30,0,0,0"
+                        CornerRadius="10"
+                        BorderBrush="DarkGray"
+                        BorderThickness="3"
+                        Background="Blue"/>
+
+                <TextBlock x:Name="txt_LagerplatzBlau"
+                           Grid.Row="1"
+                           Grid.Column="2"
+                           Text="0"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="80,0,0,0"
+                           FontSize="20"
+                           FontFamily="arial black"
+                            />
+
+                <Border Grid.Row="2"
+                        Grid.Column="2"
+                        Width="20"
+                        Height="20"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin=" 30,0,0,0"
+                        CornerRadius="10"
+                        BorderBrush="DarkGray"
+                        BorderThickness="3"
+                        Background="white"/>
+
+                <TextBlock x:Name="txt_LagerplatzWeiss"
+                           Grid.Row="2"
+                           Grid.Column="2"
+                           Text="0"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="80,0,0,0"
+                           FontSize="20"
+                           FontFamily="arial black"
+                            />
+
+                <Border x:Name="lmp_Fehler"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Width="20"
+                        Height="20"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin=" 270,0,0,0"
+                        CornerRadius="10"
+                        BorderBrush="DarkGray"
+                        BorderThickness="3"
+                        Background="IndianRed"/>
+
+                <TextBlock Grid.Row="2" 
+                           Grid.Column="1"
+                           Text="Fehler"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="300,0,0,0"
+                           FontSize="20"
+                           FontFamily="arial black"
+                            />
+
+            </Grid>
+
+            <Canvas x:Name="MyCanvaLayer1"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    Margin="50"
+                    Grid.Row="1">
+
+                <Rectangle x:Name="ConveyorBelt"
+                           Height="50"
+                           Width="700"
+                           Stroke="black"
+                           StrokeThickness="3"
+                           Fill="White"
+                           Canvas.Left="30"
+                           Canvas.Top="150"/>
+
+
+                <Rectangle x:Name="Compressor"
+                           Height="60"
+                           Width="120"
+                           Stroke="black"
+                           StrokeThickness="3"
+                           Fill="Blue"
+                           Canvas.Left="100"
+                           Canvas.Top="30"/>
+                <TextBlock Text="Kompressor"
+                           Canvas.Left="115"
+                           Canvas.Top="50"
+                           Foreground="white"
+                           FontSize="15"
+                           FontFamily="72 Monospace"/>
+
+
+                <Rectangle x:Name="EjectorBottomRed"
+                           Width="30"
+                           Height="60"
+                           Stroke="Black"
+                           StrokeThickness="3"
+                           Fill="DarkGray"
+                           Canvas.Left="415"
+                           Canvas.Top="60"/>
+                <Rectangle x:Name="EjectorStickRed"
+                           Width="8"
+                           Height="60"
+                           Stroke="Black"
+                           StrokeThickness="2"
+                           Fill="IndianRed"
+                           Canvas.Left="426"
+                           Canvas.Top="60"/>
+                <Rectangle x:Name="EjectorPlateRed"
+                           Width="30"
+                           Height="10"
+                           Stroke="Black"
+                           StrokeThickness="2"
+                           Fill="IndianRed"
+                           Canvas.Left="415"
+                           Canvas.Top="120"/>
+
+
+                <Rectangle x:Name="EjectorBottomBlue"
+                           Width="30"
+                           Height="60"
+                           Stroke="Black"
+                           StrokeThickness="3"
+                           Fill="DarkGray"
+                           Canvas.Left="505"
+                           Canvas.Top="60"/>
+                <Rectangle x:Name="EjectorStickBlue"
+                           Width="8"
+                           Height="60"
+                           Stroke="Black"
+                           StrokeThickness="2"
+                           Fill="IndianRed"
+                           Canvas.Left="516"
+                           Canvas.Top="60"/>
+                <Rectangle x:Name="EjectorPlateBlue"
+                           Width="30"
+                           Height="10"
+                           Stroke="Black"
+                           StrokeThickness="2"
+                           Fill="IndianRed"
+                           Canvas.Left="505"
+                           Canvas.Top="120"/>
+
+
+                <Rectangle x:Name="EjectorBottomWhite"
+                           Width="30"
+                           Height="60"
+                           Stroke="Black"
+                           StrokeThickness="3"
+                           Fill="DarkGray"
+                           Canvas.Left="595"
+                           Canvas.Top="60"/>
+                <Rectangle x:Name="EjectorStickWhite"
+                           Width="8"
+                           Height="60"
+                           Stroke="Black"
+                           StrokeThickness="2"
+                           Fill="IndianRed"
+                           Canvas.Left="606"
+                           Canvas.Top="60"/>
+                <Rectangle x:Name="EjectorPlateWhite"
+                           Width="30"
+                           Height="10"
+                           Stroke="Black"
+                           StrokeThickness="2"
+                           Fill="IndianRed"
+                           Canvas.Left="595"
+                           Canvas.Top="120"/>
+
+
+
+
+            </Canvas>
+
+            <Canvas x:Name="MyCanvaLayer2"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    Margin="50"
+                    Grid.Row="1">
+
+                <Rectangle x:Name="ColorSensor"
+                           Height="80"
+                           Width="150"
+                           Stroke="Black"
+                           StrokeThickness="3"
+                           Fill="Transparent"
+                           Canvas.Left="120"
+                           Canvas.Top="135"/>
+                <TextBlock Text="Farbsensor"
+                           Canvas.Left="150"
+                           Canvas.Top="165"
+                           Foreground="white"
+                           FontSize="15"
+                           FontFamily="72 Monospace"/>
+
+            </Canvas>
+
+
+        </Grid>
+
+    </Border>
+</UserControl>
