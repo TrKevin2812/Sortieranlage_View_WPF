@@ -182,7 +182,9 @@ namespace Sortieranlage_View_WPF.View
 
             // Animation starten
             EjectorPlate.BeginAnimation(Canvas.TopProperty, movePlateDown);
+            Thread.Sleep(10);
             EjectorStick.BeginAnimation(Canvas.TopProperty, moveStickDown);
+            Thread.Sleep(10);
 
 
 
@@ -206,15 +208,7 @@ namespace Sortieranlage_View_WPF.View
                 MoveWorkPieceDown();
 
             }
-            else if (_compressor)
-            {
-                EjectorAnimation(Canvas.GetTop(EjectorStickWhite), Canvas.GetTop(EjectorPlateWhite), EjectorStickWhite, EjectorPlateWhite, 50);
-            }
             else if (!_compressor && (Canvas.GetLeft(_workpiece) > 590 && Canvas.GetLeft(_workpiece) < 650))
-            {
-                EjectorAnimation(Canvas.GetTop(EjectorStickWhite), Canvas.GetTop(EjectorPlateWhite), EjectorStickWhite, EjectorPlateWhite, 5);
-            }
-            else
             {
                 EjectorAnimation(Canvas.GetTop(EjectorStickWhite), Canvas.GetTop(EjectorPlateWhite), EjectorStickWhite, EjectorPlateWhite, 5);
             }
@@ -277,20 +271,14 @@ namespace Sortieranlage_View_WPF.View
             else if (_compressor)
             {
                 EjectorAnimation(Canvas.GetTop(EjectorStickRed), Canvas.GetTop(EjectorPlateRed), EjectorStickRed, EjectorPlateRed, 50);
-
-
             }
             else if (!_compressor && (Canvas.GetLeft(_workpiece) > 405 && Canvas.GetLeft(_workpiece) < 465))
             {
                 EjectorAnimation(Canvas.GetTop(EjectorStickRed), Canvas.GetTop(EjectorPlateRed), EjectorStickRed, EjectorPlateRed, 5);
-
-
             }
             else
             {
                 EjectorAnimation(Canvas.GetTop(EjectorStickRed), Canvas.GetTop(EjectorPlateRed), EjectorStickRed, EjectorPlateRed, 5);
-
-
             }
 
         }
@@ -309,11 +297,17 @@ namespace Sortieranlage_View_WPF.View
 
             if (Canvas.GetTop(_workpiece) == 250)
             {
-                await Task.Delay(2000);
-                _lineContainer.BeginAnimation(Canvas.LeftProperty, null);
-                ConveyorBelt.Fill = Brushes.White;
-                Compressor.BeginAnimation(Canvas.RightProperty, null);
+                await Task.Delay(1500);
+                MyCanvaLayer1.Children.Remove(_workpiece);
+                DrawWorkPiece(40, 160);
                 _compressor = false;
+                _conveyorBelt = false;
+                _ejectorRed = false;
+                _ejectorBlue = false;
+                _ejectorWhite = false;
+                _automaticMode = true;
+                _workpieceOnConvoyerBelt = true;
+                _workpieceIsMoving = false;
             }
 
         }
@@ -332,6 +326,7 @@ namespace Sortieranlage_View_WPF.View
             Canvas.SetLeft(_workpiece, x);
             Canvas.SetTop(_workpiece, y);
             MyCanvaLayer1.Children.Add(_workpiece);
+            _workpieceOnConvoyerBelt = true;
         }
         private async void CompressorAnimation()
         {
@@ -358,8 +353,8 @@ namespace Sortieranlage_View_WPF.View
 
         private void StopCompressorAnimation()
         {
-            _compressor = false;
             Compressor.BeginAnimation(Canvas.LeftProperty, null);
+            _compressor = false;
         }
 
         private async void MoveWorkPieceToRight()
@@ -377,16 +372,15 @@ namespace Sortieranlage_View_WPF.View
 
                 Canvas.SetLeft(_workpiece, x + 0.5);
 
-                await Task.Delay(6);
+                await Task.Delay(5);
 
-                if (Canvas.GetLeft(_workpiece) == 175 && _automaticMode)
+                if (Canvas.GetLeft(_workpiece) == 250 && _automaticMode)
                 {
-                    _lineContainer.BeginAnimation(Canvas.LeftProperty, null);
-                    ConveyorBelt.Fill = Brushes.White;
-                    //ScannedColor();
+                    //StopConvoyerBeltAnimation();
+                    ////ScannedColor();
                     ColorScanned();
-                    await Task.Delay(500);
-                    ConvoyerBeltAnimation();
+                    //await Task.Delay(500);
+                    //ConvoyerBeltAnimation();
                 }
                 else if (Canvas.GetLeft(_workpiece) == 600 && _automaticMode && _workpiece.Fill == Brushes.White && _compressor)
                 {
@@ -414,6 +408,17 @@ namespace Sortieranlage_View_WPF.View
                 }
                 else if (Canvas.GetLeft(_workpiece) > 730)
                 {
+                    await Task.Delay(1500);
+                    MyCanvaLayer1.Children.Remove(_workpiece);
+                    DrawWorkPiece(40, 160);
+                    _compressor = false;
+                    _conveyorBelt = false;
+                    _ejectorRed = false;
+                    _ejectorBlue = false;
+                    _ejectorWhite = false;
+                    _automaticMode = true;
+                    _workpieceOnConvoyerBelt = true;
+                    _workpieceIsMoving = false;
                     return;
                 }
                 else if (Canvas.GetLeft(_workpiece) > 240)
@@ -480,7 +485,7 @@ namespace Sortieranlage_View_WPF.View
 
                     if ((bool)werte[0])
                     {
-                        Dispatcher.Invoke(async () => { lmp_Foerderband.Background = Brushes.YellowGreen; ConvoyerBeltAnimation();  });
+                        Dispatcher.Invoke(async () => { lmp_Foerderband.Background = Brushes.YellowGreen; ConvoyerBeltAnimation(); MoveWorkPieceToRight(); });
                     }
                     else
                     {
@@ -551,7 +556,10 @@ namespace Sortieranlage_View_WPF.View
                         Dispatcher.Invoke(() => { txt_Farbsensor.Text = "Nix"; txt_Farbsensor.Foreground = Brushes.Gray; _scannedColor = 0; });
                     }
 
-                    if (ConveyorBelt.Fill == Brushes.YellowGreen) { MoveWorkPieceToRight(); } //Das ist neu!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    //if (ConveyorBelt.Fill == Brushes.YellowGreen)
+                    //{
+                    //    Dispatcher.Invoke( async () => { MoveWorkPieceToRight(); });  //Das ist neu!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    //}
 
                     Dispatcher.Invoke(() => { txt_LagerplatzWeiss.Text = $"{PlcZugriffModel.ReadUInt16DB(1, 4, _plc)}"; });
                     Dispatcher.Invoke(() => { txt_LagerplatzBlau.Text = $"{PlcZugriffModel.ReadUInt16DB(1, 6, _plc)}"; });
