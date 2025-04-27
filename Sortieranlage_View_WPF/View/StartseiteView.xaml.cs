@@ -47,7 +47,7 @@ namespace Sortieranlage_View_WPF.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Fehler beim Verbinden: {ex.Message}");
+                MessageBox.Show($"Fehler beim Verbinden: {ex.Message}...Das Programm wird nicht funktionieren");
             }
 
 

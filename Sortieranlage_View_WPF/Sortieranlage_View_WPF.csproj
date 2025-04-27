@@ -9,7 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="View\Pictures\Auswerfer.png" />
+    <None Remove="View\Pictures\Kompressor.png" />
+    <None Remove="View\Pictures\Motor.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="S7netplus" Version="0.20.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\Pictures\Auswerfer.png" />
+    <Resource Include="View\Pictures\Kompressor.png" />
+    <Resource Include="View\Pictures\Motor.png" />
   </ItemGroup>
 
 </Project>

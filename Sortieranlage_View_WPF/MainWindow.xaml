@@ -40,20 +40,7 @@
                          Style="{StaticResource MenuButtonTheme}" Click="MenueButtonHandbetrieb_Click"
                          />
 
-            <RadioButton Name="MenueButtonPlcInfo"
-                         Content="PLC Info"
-                         Height="50"
-                         Foreground="White"
-                         FontSize="14"
-                         Style="{StaticResource MenuButtonTheme}" Click="MenueButtonPlcInfo_Click"/>
-
-            <RadioButton Name="MenueButtonDisconnect"
-                         Content="Disconnect"
-                         Height="50"
-                         Foreground="White"
-                         FontSize="14"
-                         Style="{StaticResource MenuButtonTheme}" Click="MenueButtonDisconnect_Click" />
-
+         
         </StackPanel>
         
     </Grid>

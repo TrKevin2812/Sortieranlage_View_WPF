@@ -80,7 +80,7 @@
 
                         </Border>
 
-                        <Image Source="H:\SPS\Sortieranlage_View_WPF\Sortieranlage_View_WPF\View\Pictures\Motor.png" Width="100" Height="100"/>
+                        <Image Source="Pictures/Motor.png" Width="100" Height="100"/>
 
                         <Button Width="100"
                                 Height="30"
@@ -126,7 +126,7 @@
 
                         </Border>
 
-                        <Image Source="H:\SPS\Sortieranlage_View_WPF\Sortieranlage_View_WPF\View\Pictures\Kompressor.png" Width="100" Height="100"/>
+                        <Image Source="Pictures/Kompressor.png" Width="100" Height="100"/>
 
                         <Button Width="100"
                                 Height="30"
@@ -171,7 +171,7 @@
 
                         </Border>
 
-                        <Image Source="H:\SPS\Sortieranlage_View_WPF\Sortieranlage_View_WPF\View\Pictures\/Auswerfer.png" Width="100" Height="100"/>
+                        <Image Source="Pictures/Auswerfer.png" Width="100" Height="100"/>
 
                         <Button Width="100"
                                 Height="30"
@@ -217,7 +217,7 @@
 
                         </Border>
 
-                        <Image Source="H:\SPS\Sortieranlage_View_WPF\Sortieranlage_View_WPF\View\Pictures\/Auswerfer.png" Width="100" Height="100"/>
+                        <Image Source="Pictures/Auswerfer.png" Width="100" Height="100"/>
 
                         <Button Width="100"
                                 Height="30"
@@ -263,7 +263,7 @@
 
                         </Border>
 
-                        <Image Source="H:\SPS\Sortieranlage_View_WPF\Sortieranlage_View_WPF\View\Pictures\/Auswerfer.png" Width="100" Height="100"/>
+                        <Image Source="Pictures/Auswerfer.png" Width="100" Height="100"/>
 
                         <Button Width="100"
                                 Height="30"
